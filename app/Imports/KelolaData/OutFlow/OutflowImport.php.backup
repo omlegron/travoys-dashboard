@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Imports\KelolaData\Outflow;
+
+use App\Models\KelolaData\Outflow;
+use App\Models\Master\KodePecahan;
+use App\Models\Master\Satker;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Carbon\Carbon;
+
+class OutflowImport implements ToCollection
+{
+
+    public function collection(Collection $rows)
+    {
+        $index = 0;
+        $tanggal = NULL;
+        $pecahan = $rows[2];
+        foreach ($rows as $row) 
+        {
+            if($index>=3){
+                if(!is_null($row[0]) && !is_null($row[1])){
+                    if((int) $row[0] > 0){
+                        $tanggal = Carbon::createFromFormat('d-M-Y',$row[0])->format('Y-m-d');
+                    }
+                }
+                if(!is_null($tanggal) && !is_null($row[1])){
+                    $idx = 0;
+                    foreach ($pecahan as $kode) {
+                        if(!is_null($kode)){
+                            if(substr(strtolower($kode),0,1) == 'l' || substr(strtolower($kode),0,1) == 'k' ){
+                                $satker = Satker::where('name','like','%'.$row[1].'%')->first();
+                                $kodepecahan = KodePecahan::where('code','like','%'.$kode.'%')->first();
+                                if($satker){
+                                    if($kodepecahan){
+                                        $cek = Outflow::where('tanggal',$tanggal)->where('satker_id',$satker->id)->where('kode_pecahan_id',$kodepecahan->id)->first();
+
+                                            $x['tanggal'] = $tanggal;
+                                            $x['satker_id'] = $satker->id;
+                                            $x['kode_pecahan_id'] = $kodepecahan->id;
+                                            $x['value'] = (float)((int) $row[$idx]);
+                                        if($cek){
+                                            $cek->fill($x);
+                                            $cek->save();
+                                        }else{
+                                            Outflow::create($x);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        $idx++;
+                    }
+                }
+            }
+            $index++;
+        }
+    }
+}
