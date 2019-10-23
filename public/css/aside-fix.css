@@ -1,0 +1,11 @@
+.app-aside-fixed .aside-wrap {
+	overflow: visible!important;
+}
+
+.app-aside-fixed.app-aside-folded .aside-wrap .navi-wrap:hover {
+	width: 270px;
+}
+.app-aside-fixed.app-aside-folded .aside-wrap .navi-wrap {
+	width: auto;
+	overflow-y: hidden;
+}
