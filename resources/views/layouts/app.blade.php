@@ -7,15 +7,15 @@
 
   <meta name="description" content="peta padam, petapadam, up2d, kalbar, kalimantan barat, kalimantanbarat" />
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <link rel="shortcut icon" type="image/png" href="{{ secure_asset('img/icon.png') }}"/>
-  <link rel="stylesheet" href="{{ secure_asset('libs/assets/animate.css/animate.css') }}" type="text/css" />
-  <link rel="stylesheet" href="{{ secure_asset('libs/assets/font-awesome/css/font-awesome.min.css') }}" type="text/css" />
-  <link rel="stylesheet" href="{{ secure_asset('libs/assets/simple-line-icons/css/simple-line-icons.css') }}" type="text/css" />
-  <link rel="stylesheet" href="{{ secure_asset('libs/jquery/bootstrap/dist/css/bootstrap.css') }}" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="{{ asset('img/icon.png') }}"/>
+  <link rel="stylesheet" href="{{ asset('libs/assets/animate.css/animate.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('libs/assets/font-awesome/css/font-awesome.min.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('libs/assets/simple-line-icons/css/simple-line-icons.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('libs/jquery/bootstrap/dist/css/bootstrap.css') }}" type="text/css" />
 
-  <link rel="stylesheet" href="{{ secure_asset('src/css/font.css') }}" type="text/css" />
-  <link rel="stylesheet" href="{{ secure_asset('src/css/app.css') }}" type="text/css" />
-  <link rel="stylesheet" href="{{ secure_asset('css/aside-fix.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('src/css/font.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('src/css/app.css') }}" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('css/aside-fix.css') }}" type="text/css" />
 
   <style type="text/css">
     .app-aside-footer .navi > ul > li > ul {
@@ -23,9 +23,9 @@
       bottom: -3.75rem!important;
     }
   </style>
-
+  
   @stack('css')
-
+  
   @stack('styles')
 </head>
 <body>
@@ -36,14 +36,14 @@
   @include('partials.header')
   <!-- / header -->
 
-  <!-- aside -->
+  <!-- aside -->  
   @include('partials.sidebar')
   <!-- / aside -->
 
   <!-- content -->
   @yield('content')
   <!-- /content -->
-
+  
   <!-- footer -->
   <div class="maximize hidden"><!-- settings -->
     <button class="btn btn-default no-shadow pos-abt">
@@ -55,17 +55,17 @@
 
 @stack('modals')
 
-<script src="{{ secure_asset('libs/jquery/jquery/dist/jquery.js') }}"></script>
-<script src="{{ secure_asset('libs/jquery/bootstrap/dist/js/bootstrap.js') }}"></script>
-<script src="{{ secure_asset('libs/jquery/redirect/jquery.redirect.js') }}"></script>
-<script src="{{ secure_asset('libs/assets/chartjs/Chart.bundle.js') }}"></script>
-<script src="{{ secure_asset('libs/assets/chartjs/utils.js') }}"></script>
-<script src="{{ secure_asset('src/js/ui-load.js') }}"></script>
-<script src="{{ secure_asset('src/js/ui-jp.config.js') }}"></script>
-<script src="{{ secure_asset('src/js/ui-jp.js') }}"></script>
-<script src="{{ secure_asset('src/js/ui-nav.js') }}"></script>
-<script src="{{ secure_asset('src/js/ui-toggle.js') }}"></script>
-<script src="{{ secure_asset('src/js/ui-client.js') }}"></script>
+<script src="{{ asset('libs/jquery/jquery/dist/jquery.js') }}"></script>
+<script src="{{ asset('libs/jquery/bootstrap/dist/js/bootstrap.js') }}"></script>
+<script src="{{ asset('libs/jquery/redirect/jquery.redirect.js') }}"></script>
+<script src="{{ asset('libs/assets/chartjs/Chart.bundle.js') }}"></script>
+<script src="{{ asset('libs/assets/chartjs/utils.js') }}"></script>
+<script src="{{ asset('src/js/ui-load.js') }}"></script>
+<script src="{{ asset('src/js/ui-jp.config.js') }}"></script>
+<script src="{{ asset('src/js/ui-jp.js') }}"></script>
+<script src="{{ asset('src/js/ui-nav.js') }}"></script>
+<script src="{{ asset('src/js/ui-toggle.js') }}"></script>
+<script src="{{ asset('src/js/ui-client.js') }}"></script>
 <script src="https://unpkg.com/konva@2.4.2/konva.min.js"></script>
 
 
@@ -73,7 +73,7 @@
 
 <script>
   $(document).ready(function($) {
-    $('.minimize').trigger('click');
+    $('.minimize').trigger('click');  
   });
 
   $(document).on('click', '.minimize', function(e) {

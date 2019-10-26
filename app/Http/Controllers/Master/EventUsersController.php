@@ -8,57 +8,14 @@ use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Models\Master\Event;
-use App\Models\Master\EventUsers;
 use Carbon;
 
 use App\Http\Requests\Master\EventRequest;
 
-class EventController extends Controller
+class EventUsersController extends Controller
 {
-    protected $routes = 'master.event';
-    protected $link = 'master/event/';
-    private $userStruct = [
-      [
-                'data' => 'num',
-                'name' => 'num',
-                'label' => '#',
-                'orderable' => false,
-                'searchable' => false,
-                'className' => 'text-center',
-                'width' => '20px',
-            ],
-            /* --------------------------- */
-            [
-                'data' => 'user_id',
-                'name' => 'user_id',
-                'label' => 'Users',
-                'sortable' => true,
-            ],
-            [
-                'data' => 'created_at',
-                'name' => 'created_at',
-                'label' => 'Created At',
-                'className' => 'text-center',
-                'sortable' => true,
-            ],
-            [
-                'data' => 'created_by',
-                'name' => 'created_by',
-                'label' => 'Created By',
-                'className' => 'text-center',
-                'sortable' => true,
-            ],
-            [
-                'data' => 'action',
-                'name' => 'action',
-                'label' => 'Aksi',
-                'searchable' => false,
-                'sortable' => false,
-                'width' => '120px',
-                'className' => 'text-center'
-            ]
-    ];
-
+    protected $routes = 'master.event-users';
+    protected $link = 'master/event-users/';
     function __construct()
     {
         $this->setRoutes($this->routes);
@@ -154,7 +111,7 @@ class EventController extends Controller
                     'tooltip' => 'Detail Users',
                     'label' => '<i class="fa fa-users text-light"></i>',
                     'id'   => $record->id,
-                    'url'   => url($link.'users/'.$record->id.''),
+                    'url'   => url($link.$record->id.'/detail-users'),
                 ]);
 
                 // $buttons .= $this->makeButton([
@@ -223,12 +180,4 @@ class EventController extends Controller
         return $this->render('modules.master.event.scan',[]);
     }
 
-    public function users($id){
-        return $this->render('modules.master.event.users.index',['tableStruct' => $this->userStruct]);
-    }
-
-    public function gridUsers(Request $request){
-        // create gride user like grid
-        dd('asd');
-    }
 }

@@ -1,3 +1,4 @@
+@include('modules.master.event.script.attachments')
 <form action="{{ route($routes.'.update', $record->id) }}" method="POST" id="formData">
     @method('PATCH')
     @csrf

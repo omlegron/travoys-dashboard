@@ -10,8 +10,10 @@
         </label>
       </span>
     </div>
+    @if($record)
     @if($record->count() > 0)
         <img src="{{ url('storage/'.$record->first()->url) }}" class="b b-a wrapper-xs bg-white img-responsive">
+    @endif
     @endif
   </a>
 </div>

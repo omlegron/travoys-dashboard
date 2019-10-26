@@ -17,13 +17,27 @@ Route::middleware('auth')->group(function() {
 	    // return view('welcome');
 	});
 
-
-	Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
+	
+	Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');	
 
 	Route::name('master.')->prefix('master')->namespace('Master')->group(function() {
+
+		// EVENT
+		Route::post('/event/gridusers', 'EventController@gridUsers')->name('event.gridusers');
+		Route::get('/event/users/{id}', 'EventController@users')->name('event.users');
+		Route::get('/event/scan', 'EventController@scan')->name('event.scan');
 		Route::post('/event/grid', 'EventController@grid')->name('event.grid');
 		Route::resource('/event', 'EventController');
+		
+		
 	});
+
+	// Route::name('master.')->prefix('master')->namespace('Master')->group(function() {
+	// 	// EVENT USERS
+	// 	Route::post('/event-users/grid', 'EventUsersController@grid')->name('event-users.grid');
+	// 	Route::get('/event-users/{id}', 'EventUsersController@index')->name('event-users.index');
+		
+	// });
 
 
 	Route::name('setting.')->prefix('setting')->namespace('Setting')->group( function() {
@@ -43,4 +57,3 @@ Route::middleware('auth')->group(function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('scanqr','QRScanController@index');

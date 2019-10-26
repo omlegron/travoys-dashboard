@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@include('libs.datatable')
+@include('libs.datatable-custom')
 @include('libs.actions')
 
 @section('side-header')

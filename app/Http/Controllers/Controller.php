@@ -156,6 +156,23 @@ class Controller extends BaseController
                 			{$params['label']}
                 		</a>\n";
                 break;
+            case "custom":
+                $settings['class']   = 'edit button';
+                $settings['label']   = '<i class="fa fa-pencil text-light"></i>';
+                $settings['tooltip'] = 'Edit';
+                
+                $params  = array_merge($settings, $params);
+                $extends = " data-content='{$params['tooltip']}' data-id='{$params['id']}'";
+
+                $btn = "<a href=\"#\" {$datas}{$attrs}{$extends} 
+                           class='{$params['class']}' 
+                           data-toggle=\"popover\" 
+                           title=\"{$params['tooltip']}\"
+                           {$params['disabled']} 
+                        >
+                            {$params['label']}
+                        </a>\n";
+                break;
             case "modal":
                 $settings['onClick'] = '';
                 $settings['class']   = 'blue icon edit';
