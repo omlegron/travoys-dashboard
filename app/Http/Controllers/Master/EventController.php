@@ -223,6 +223,10 @@ class EventController extends Controller
         return $this->render('modules.master.event.scan',[]);
     }
 
+    public function postScan(Request $request){
+        dd('result',$request->all());
+    }
+
     public function users($id){
         return $this->render('modules.master.event.users.index',['tableStruct' => $this->userStruct]);
     }

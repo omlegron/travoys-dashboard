@@ -26,7 +26,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="type">Pilih Event</label>
-                        <select name="kode_gangguan_id" id="kode_gangguan_id" class="form-control selectpicker">
+                        <select name="event_id" id="event_id" class="form-control selectpicker">
                             {!! App\Models\Master\Event::options('title', 'id') !!}
                         </select>
                     </div>

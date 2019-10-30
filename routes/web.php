@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function() {
 	Route::name('master.')->prefix('master')->namespace('Master')->group(function() {
 
 		// EVENT
+		Route::post('/event/post-scan', 'EventController@postScan')->name('event.postScan');
 		Route::post('/event/gridusers', 'EventController@gridUsers')->name('event.gridusers');
 		Route::get('/event/users/{id}', 'EventController@users')->name('event.users');
 		Route::get('/event/scan', 'EventController@scan')->name('event.scan');
