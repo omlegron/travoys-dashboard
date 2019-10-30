@@ -83,13 +83,7 @@
             <!-- main -->
             <div class="col">
 
-                <div class="panel panel-success" id="selfie-panel">
-                    <div class="panel-body">
-                        {{-- <img src="{{ asset('src/img/bg2.jpg') }}"> --}}
-                        <br><br><br><br><br>
-                        <center><b>Under Constructions ..</b></center>
-                    </div>
-                </div>
+               
 
                 <!-- main header -->
                 {{-- <div class="bg-light lter b-b wrapper-md" id="la-heading">
@@ -116,18 +110,13 @@
 
                 <!-- / main header -->
                 <div class="wrapper-md">
-          {{--           <div class="panel b-a">
+                   <div class="panel b-a">
                         <div class="panel-heading no-border bg-red text-white text-center" style="background: #dd0000">          
                             <span class="text-lt"><i class="fa fa-bar-chart-o"></i> Dashboards</span>
                         </div>
                         @include('home.section-dashboard')
                     </div>
-                    <div class="panel b-a">
-                        <div class="panel-heading no-border bg-blue text-white text-center" style="background: #004f91">          
-                            <span class="text-lt"><i class="fa fa-database"></i> Pengelolaan Data</span>
-                        </div>
-                        @include('home.section-management')
-                    </div> --}}
+                    
                 </div>
             </div>
             <!-- / main -->

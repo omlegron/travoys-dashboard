@@ -41,12 +41,6 @@ class UserController extends Controller
                 'sortable' => true,
             ],
             [
-                'data' => 'role',
-                'name' => 'role',
-                'label' => 'Role',
-                'sortable' => true,
-            ],
-            [
                 'data' => 'created_at',
                 'name' => 'created_at',
                 'label' => 'Created At',
@@ -85,11 +79,6 @@ class UserController extends Controller
         return DataTables::of($records)
                ->addColumn('num', function($record) {
                     return request()->start;
-               })
-               ->addColumn('role', function($record) {
-                    return $record->roles->first()
-                         ? $record->roles->first()->name
-                         : '-';
                })
                ->editColumn('created_at', function($record){
                     return $record->created_at->diffForHumans();
@@ -161,7 +150,7 @@ class UserController extends Controller
         }
 
         $user->update($attrs);
-        $user->assignRole($request->role);
+        // $user->assignRole($request->role);
 
         return $user;
     }

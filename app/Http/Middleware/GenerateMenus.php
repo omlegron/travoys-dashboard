@@ -38,9 +38,9 @@ class GenerateMenus
                      // ->data('perms', 'setting user')
                      ->data('with-header', false);
 
-                $menu->user->add('Profile', 'profile')
+                // $menu->user->add('Profile', 'profile')
                     // ->data('perms', 'setting user')
-                    ;
+                    // ;
                 $menu->user->add('Logout', 'javascript:void(0)')
                     // ->data('perms', 'setting user')
                     ->link->attr(['class' => 'logout']);

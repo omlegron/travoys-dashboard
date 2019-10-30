@@ -30,14 +30,6 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label">Role</label>
-            <select class="form-control" name="role" required="">
-                <option value="">Select Role</option>
-                @foreach(App\Models\Auth\Role::all() as $role)
-                    <option value="{{ $role->name }}" @if($record->hasRole($role->name)) selected @endif>{{ $role->name }}</option>
-                @endforeach
-            </select>                  
         </div>
     </div>
     <div class="modal-footer">

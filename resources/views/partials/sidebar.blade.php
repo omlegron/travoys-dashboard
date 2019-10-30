@@ -1,9 +1,9 @@
 <aside id="aside" class="app-aside hidden-xs bg-black">
     <a href="#/" class="navbar-brand text-lt">
         <!-- <i class="fa fa-btc" class="hide"></i> -->
-        <img src="{{ asset('src/img/icons/icon.png') }}" alt="UP2D Kalbar">
+        <img src="{{ asset('img/icon-mini.png') }}" alt="UP2D Kalbar">
         {{-- UP --}}
-        <span class="hidden-folded m-l-xs">UP2D Kalbar</span>
+        <span class="hidden-folded m-l-xs">Travoys</span>
     </a>
     <div class="aside-wrap">
         <div class="app-aside-footer">

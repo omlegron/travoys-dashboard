@@ -10,8 +10,8 @@
       <!-- brand -->
       <a href="#/" class="navbar-brand text-lt">
         <!-- <i class="fa fa-btc" class="hide"></i> -->
-        <img src="{{ asset('img/icon.png') }}" alt=".">
-        <span class="hidden-folded m-l-xs">UP2D Kalbar</span>
+        <img src="" alt=".">
+        <span class="hidden-folded m-l-xs">Travoys</span>
       </a>
       <!-- / brand -->
     </div>
@@ -20,7 +20,7 @@
     <!-- navbar collapse -->
     <div class="collapse pos-rlt navbar-collapse box-shadow ">
       <!-- search form -->
-      <form class="navbar-form navbar-form-sm navbar-left shift">
+     <!--  <form class="navbar-form navbar-form-sm navbar-left shift">
         <div class="form-group">
           <div class="input-group">
             <a class="input-group-addon">
@@ -29,19 +29,18 @@
             <input type="text" ng-model="selected" class="form-control input-sm no-border" placeholder="Search data or Graphic">
           </div>
         </div>
-      </form>
+      </form> -->
       <!-- / search form -->
 
       <!-- nabar right -->
       <ul class="nav navbar-nav navbar-right">
         
-        <li>
+       <!--  <li>
           <a href="#" class="new">
             <i class="icon-bell fa-fw"></i>
             <span class="visible-xs-inline">Notifications</span>
-            <!-- <span class="badge badge-sm up bg-danger pull-right-xs"></span> -->
           </a>
-        </li>
+        </li> -->
         <li>
           <a href="#" class="minimize">
             <i class="fa fa-chevron-up"></i>

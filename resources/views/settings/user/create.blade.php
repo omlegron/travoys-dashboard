@@ -28,15 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label">Role</label>
-            <select class="form-control" name="role" required="">
-                <option value="">Select Role</option>
-                @foreach(App\Models\Auth\Role::all() as $role)
-                    <option value="{{ $role->name }}">{{ $role->name }}</option>
-                @endforeach
-            </select>                  
-        </div>
+           </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
