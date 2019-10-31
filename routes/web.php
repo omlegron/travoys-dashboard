@@ -22,11 +22,16 @@ Route::middleware('auth')->group(function() {
 
 	Route::name('master.')->prefix('master')->namespace('Master')->group(function() {
 
-		// EVENT
+		Route::get('/event/add-event-users/{id}', 'EventController@createUsers')->name('event.createUsers');
+		Route::delete('/event/delete-event-users/{id}', 'EventController@destroyUsers')->name('event.destroyUsers');
+		Route::post('/event/store-users', 'EventController@storeUsers')->name('event.storeUsers');
 		Route::post('/event/post-scan', 'EventController@postScan')->name('event.postScan');
 		Route::post('/event/gridusers', 'EventController@gridUsers')->name('event.gridusers');
+
+
+		// EVENT
 		Route::get('/event/users/{id}', 'EventController@users')->name('event.users');
-		Route::get('/event/scan', 'EventController@scan')->name('event.scan');
+		Route::get('/event/scan/{id}', 'EventController@scan')->name('event.scan');
 		Route::post('/event/grid', 'EventController@grid')->name('event.grid');
 		Route::resource('/event', 'EventController');
 		

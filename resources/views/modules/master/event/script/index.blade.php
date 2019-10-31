@@ -6,7 +6,7 @@
         $.ajax({
         url: '{{ url($pageUrl) }}/post-scan',
         type: 'POST',
-        data: {_token: "{{ csrf_token() }}", _method: "POST",event:$('select[name="event_id"]').val(), scan:content},
+        data: {_token: "{{ csrf_token() }}", _method: "POST",trans_id:$('input[name="trans_id"]').val(), barcode:content},
         success: function(resp){
           swal(
             'Tersimpan!',
@@ -15,11 +15,19 @@
             );
           },
           error : function(resp){
-            swal(
-              'Gagal!',
-              'Data gagal disimpan',
-              'error'
+            if(resp.responseJSON.message.length > 0){
+              swal(
+                'Gagal!',
+                ''+resp.responseJSON.message,
+                'error'
               )
+            }else{
+              swal(
+                'Gagal!',
+                'Data gagal disimpan',
+                'error'
+                )
+            }
             }
         });
       });

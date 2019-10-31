@@ -12,7 +12,7 @@
 @push('js')
     <script>
         $(document).ready(function(){
-            createDatatable('dataTable',{urls:'{!! route($routes.'.gridusers') !!}'})
+            createDatatable('dataTable',{urls:'{!! route($routes.'.gridusers') !!}'}, {trans_id:'{{ $trans_id }}'})
         });
     </script>
 @endpush
@@ -20,20 +20,20 @@
 @section('body')
 <div class="panel panel-default">
         <div class="panel-body">
-            @section('headerButton')
             <div class="row">
                 <div class="col-sm-9">
                     <form id="dataFilters" class="form-inline" role="form">
-                        @yield('filters')
+                       asd 
                     </form>
                 </div>
                 <div class="col-sm-3 text-right">
-                    @section('buttons')
-                    <button class="btn m-b-xs btn-success btn-addon add button"><i class="fa fa-plus"></i>Add New</button>
-                    @show
+                    <a href="{{ url('master/event/scan/'.$trans_id) }}" class="btn m-b-xs btn-primary btn-addon add button"><i class="fa fa-camera"></i>Scan</a>
+                    <button class="btn m-b-xs btn-success btn-addon others-modal button" data-url="{{ url('master/event/add-event-users/'.$trans_id) }}">
+                        <i class="fa fa-plus"></i>
+                        Add New
+                    </button>
                 </div>
             </div>
-            @show
         </div>
         <div class="table-responsive">
             @if(isset($tableStruct))

@@ -20,29 +20,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-			         <a href="{{ url('master/event') }}" title="" class="btn btn-danger">Kembali</a> 
+			         <a href="{{ url('master/event/users/'.$trans_id) }}" title="" class="btn btn-danger">Kembali</a> 
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="type">Pilih Event</label>
-                        <select name="event_id" id="event_id" class="form-control selectpicker">
-                            {!! App\Models\Master\Event::options('title', 'id') !!}
-                        </select>
-                    </div>
+                    <input type="hidden" name="trans_id" value="{{ $trans_id }}">
                 </div>
             </div>
         </div>
         <div class="table-responsive">
         	<div class="row">
     			<div class="col-md-12">
-                    <p>
-                    <b>
-                    *Setelah Selesai di scan beri modal success seperti success tambah event <br>
-                    *data scan harus sesuai event<br>
-                    *penempatan jquery di beda halaman dalam folder menu yang terkait<br>
-                    </b>
-                    </p>
                     <video id="preview" style="width: 100%"></video>
     			</div>
 			</div>       

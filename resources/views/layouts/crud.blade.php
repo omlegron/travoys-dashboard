@@ -76,10 +76,10 @@
             });
         });
 
-        $(document).on('click', '.others.modal.button', function(e){
+        $(document).on('click', '.others-modal.button', function(e){
             // var idx = $(this).data('id');
             var url = $(this).data('url');
-            console.log('url',url);
+            // console.log('url',url);
             loadModal({
                 url: url,
                 modal: modal,
@@ -89,6 +89,7 @@
                 onShow();
             });
         });
+
 
         $(document).on('click', '.save.button', function(e){
             saveData('formData', function(resp){
@@ -106,8 +107,12 @@
 
         $(document).on('click', '.delete.button', function(e){
             var idx = $(this).data('id');
-
-            deleteData('{!! route($routes.'.index') !!}/' + idx, function(resp){
+            console.log('sad',$(this).data('url'))
+            var url = '{!! route($routes.'.index') !!}/' + idx;
+            if($(this).data('url')){
+                url = $(this).data('url');
+            }
+            deleteData(url,function(resp){
                 dt.draw(false);
             });
         });

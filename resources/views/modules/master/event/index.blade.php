@@ -21,7 +21,6 @@
         </form>
     </div>
     <div class="col-md-6 text-right">
-        <a href="{{ url('master/event/scan') }}" class="btn m-b-xs btn-primary btn-addon add button"><i class="fa fa-camera"></i>Scan</a>
 		<button class="btn m-b-xs btn-success btn-addon add button"><i class="fa fa-plus"></i>Add New</button>
     </div>
 </div>

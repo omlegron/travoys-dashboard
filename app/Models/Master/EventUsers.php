@@ -10,7 +10,7 @@ use App\Models\Traits\HasContributors;
 use App\Models\Traits\Utilities;
 
 // use App\Models\Roles;
-use App\Models\User;
+use App\Models\Users;
 use App\Models\Attachments\Attachment;
 // use App\Models\Attachments;
 use Illuminate\Support\Facades\URL;
@@ -21,7 +21,7 @@ class  EventUsers extends Model
     use HasContributors;
     use Utilities;
     
-    protected $table 		= 'ref_event';
+    protected $table 		= 'trans_event_users';
     protected $fillable 	= [
         'target_id',
         'target_type',
@@ -33,6 +33,9 @@ class  EventUsers extends Model
         'status',
     ];
 
+    public function user(){
+        return $this->hasOne(Users::class, 'id');
+    }
     // public function filesMorphClass()
     // {
     //     return 'event-file';
