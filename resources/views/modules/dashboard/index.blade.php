@@ -1,6 +1,7 @@
 @extends('layouts.full')
 
-@section('title', 'Data Event')
+@include('libs.datatable')
+@include('libs.actions')
 
 @push('styles')
 <style type="text/css">

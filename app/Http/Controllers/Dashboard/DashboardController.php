@@ -217,6 +217,9 @@ class DashboardController extends Controller
     public function grid(Request $request)
     {
         $records = TarifTransJawa::select('*');
+        /**
+         * undocumented constant
+         **/
 
         $routes = $this->routes;
         $link = $this->link;
@@ -234,14 +237,14 @@ class DashboardController extends Controller
                     'url'   => url($link.$record->id.'/edit'),
                 ]);
 
-                $buttons .= $this->makeButton([
-                    'type' => 'url',
-                    'class' => 'btn btn-sm bg-primary edit button',
-                    'tooltip' => 'Detail Users',
-                    'label' => '<i class="fa fa-users text-light"></i>',
-                    'id'   => $record->id,
-                    'url'   => url($link.'tarif_transjawa/'.$record->id.''),
-                ]);
+                // $buttons .= $this->makeButton([
+                //     'type' => 'url',
+                //     'class' => 'btn btn-sm bg-primary edit button',
+                //     'tooltip' => 'Detail Users',
+                //     'label' => '<i class="fa fa-users text-light"></i>',
+                //     'id'   => $record->id,
+                //     'url'   => url($link.'tarif_transjawa/'.$record->id.''),
+                // ]);
 
                 $buttons .= $this->makeButton([
                     'type' => 'custom',
