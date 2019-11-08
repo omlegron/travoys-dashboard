@@ -228,11 +228,11 @@ class EventController extends Controller
     }
 
     public function postScan(Request $request){
-        
+        // dd($request->all());
         $decrypted = Crypt::decryptString($request->barcode);
         $data = json_decode($decrypted);
 
-        $cekRec = EventUsers::where('user_id',$data->user)->first();
+        $cekRec = EventUsers::where('trans_id',$request->trans_id)->where('user_id',$data->user)->first();
         if(isset($cekRec)){
             header('HTTP/1.1 800 Internal Server Booboo');
             header('Content-Type: application/json; charset=UTF-8');
@@ -267,7 +267,9 @@ class EventController extends Controller
             $records->where('title', 'like', '%' . $name . '%');
         }
 
-        if ($trans_id = $request->trans_id) {
+        // dd($request->all());
+        if ($trans_id = $request->result['trans_id']) {
+            // dd($trans_id);
             $records->where('trans_id', $trans_id);
         }
 
@@ -281,7 +283,11 @@ class EventController extends Controller
                     return $record->created_at->diffForHumans();
                })
                ->editColumn('user_id', function($record){
-                    return $record->user->name;
+                    if(isset($record->userss->name)){
+                        return $record->userss->name;
+                    }else{
+                        return '-';
+                    }
                })
                 ->editColumn('created_by', function($record){
                     return $record->createdBy();
@@ -310,6 +316,7 @@ class EventController extends Controller
 
     public function storeUsers(Request $request)
     {
+        // dd($request->all());
         $this->validate($request,[
             'user_id' => 'required'
         ]);

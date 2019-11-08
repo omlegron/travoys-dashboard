@@ -33,8 +33,8 @@ class  EventUsers extends Model
         'status',
     ];
 
-    public function user(){
-        return $this->hasOne(Users::class, 'id');
+    public function userss(){
+        return $this->belongsTo(Users::class, 'user_id');
     }
     // public function filesMorphClass()
     // {

@@ -6,7 +6,7 @@
     </div>
     <div class="modal-body">
         <div class="form-group">
-            <label class="control-label">Judul Event</label>
+            <label class="control-label">Nama</label>
             <select name="user_id" id="user_id" class="form-control selectpicker">
                 {!! App\Models\Users::options('name', 'id') !!}
             </select>

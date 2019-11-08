@@ -13,6 +13,7 @@
             'Data Berhasil Di Simpan.',
             'success'
             );
+            dt.draw();
           },
           error : function(resp){
             if(resp.responseJSON.message.length > 0){
@@ -21,12 +22,14 @@
                 ''+resp.responseJSON.message,
                 'error'
               )
+              dt.draw();
             }else{
               swal(
                 'Gagal!',
                 'Data gagal disimpan',
                 'error'
                 )
+              dt.draw();
             }
             }
         });
