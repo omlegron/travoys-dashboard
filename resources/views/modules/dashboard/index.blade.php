@@ -1,34 +1,7 @@
 @extends('layouts.full')
-@push('css')
-	 <link rel="stylesheet" href="{{ asset('plugins/leaflet/leaflet.css') }}"/>
-@endpush
 
-@push('js')
-	  <script src="{{ asset('plugins/leaflet/leaflet.js') }}"/></script>
-@endpush
-
-@push('scripts')
-	<script type="text/javascript">
-		//Maps
-        var mymap = L.map('mapid').setView([-8.650000, 115.216667], 12);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-            maxZoom: 18,
-        }).addTo(mymap);
-
-        var marker = L.marker([-8.650000, 115.216667]).addTo(mymap);
-        // $('#koordinat').val("-8.650000, 115.216667");
-
-      	mymap.on('click', function(e) {
-	        var lat = e.latlng.lat;
-	        var lng = e.latlng.lng;
-
-	        marker.setLatLng(e.latlng);
-	        $('#koordinat').val(lat.toString()+', '+lng.toString());
-      	});
-	</script>
-@endpush
+@include('libs.datatable')
+@include('libs.actions')
 
 @push('styles')
 <style type="text/css">
@@ -56,15 +29,17 @@
         width: 35rem !important;
         right: 0 !important;
     }
+    button.btn.btn-default.no-shadow.pos-abt {
+    display: none;
+    }
 </style>
 
 
 @section('title', 'Dashboard')
 
-
 @section('body')
 	 <div class="col item">
-        <div id="mapid" style="height: 100vh; width: 100%"></div>
+        <div id="mapid" style="margin-top: 100px; width: 100%"></div>
         <div class="top-right" style="z-index: 600;">
             <div class="col-md-12">
               <div class="panel no-border">
@@ -94,4 +69,28 @@
            
         </div>
     </div>
+
+
+    <div class="panel panel-default">
+        <center><h3>Tarif Trans Jawa</h3></center>
+        <hr>
+        <div class="table-responsive">
+            @if(isset($tableStruct))
+            <table id="dataTable" class="table table-bordered m-t-none" style="width: 100%">
+                <thead>
+                    <tr>
+                        @foreach ($tableStruct as $struct)
+                            <th class="text-center" style="white-space:nowrap;">{{ $struct['label'] }}</th>
+                        @endforeach
+                  </tr>
+                </thead>
+                <tbody>
+                    @yield('tableBody')
+                </tbody>
+            </table>
+            @endif
+        </div>
+    </div>
 @endsection
+
+

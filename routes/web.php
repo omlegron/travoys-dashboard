@@ -18,7 +18,8 @@ Route::middleware('auth')->group(function() {
 	});
 
 	
-	Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');	
+	Route::resource('/dashboard', 'Dashboard\DashboardController');
+	Route::post('/dashboard/grid', 'Dashboard\DashboardController@grid')->name('dashboard.grid');	
 
 	Route::name('master.')->prefix('master')->namespace('Master')->group(function() {
 
