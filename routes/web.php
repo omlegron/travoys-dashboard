@@ -9,11 +9,11 @@ use Spatie\Browsershot\Browsershot;
 
 Route::middleware('auth')->group(function() {
 	Route::get('/', function () {
-	    return redirect()->route('dashboard');
+	    return redirect('dashboard');
 	    // return view('welcome');
 	});
 	Route::get('/register', function () {
-	    return redirect()->route('dashboard');
+	    return redirect('dashboard');
 	    // return view('welcome');
 	});
 
