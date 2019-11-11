@@ -33,17 +33,17 @@ class GenerateMenus
 
         Lavamenu::make('footMenu', function ($menu) {
             /* User */
-                $menu->add('User', '#')
-                     ->data('icon', 'fa fa-user')
+                $menu->add('Logout', 'javascript:void(0)')
+                     ->data('icon', 'fa fa-sign-out')
                      // ->data('perms', 'setting user')
-                     ->data('with-header', false);
-
+                     ->data('with-header', false)
+                     ->link->attr(['class' => 'logout']);
                 // $menu->user->add('Profile', 'profile')
                     // ->data('perms', 'setting user')
                     // ;
-                $menu->user->add('Logout', 'javascript:void(0)')
+                // $menu->user->add('Logout', 'javascript:void(0)')
                     // ->data('perms', 'setting user')
-                    ->link->attr(['class' => 'logout']);
+                    // ->link->attr(['class' => 'logout']);
             /* End of User */
 
             $menu->add('Setting', 'setting')
